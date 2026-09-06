@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" fill="none" role="img" aria-label="CHIKITRA — Simplifying Clinic Management">
+  <rect width="40" height="40" x="0" y="4" rx="10" fill="#0F766E"/>
+  <path d="M28 21c1.24-1.22 2.5-2.68 2.5-4.58A4.58 4.58 0 0 0 25.92 12c-1.47 0-2.5.42-3.75 1.67C20.92 12.42 19.9 12 18.42 12A4.58 4.58 0 0 0 13.84 16.42c0 1.92 1.25 3.38 2.5 4.58l5.83 5.83z"
+        stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14.85 20.17h5.23l.42-.84 1.67 3.75 1.66-5.83 1.25 2.92h4.4"
+        stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="54" y="26" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="800" letter-spacing="2.4" fill="#1E293B">CHIKITRA</text>
+  <text x="55" y="38" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="500" letter-spacing="1.2" fill="#64748B">CLINIC MANAGEMENT</text>
+</svg>

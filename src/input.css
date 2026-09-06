@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   CHIKITRA — design system primitives
+   Only genuinely reusable patterns live here. Everything else is
+   composed from Tailwind utilities directly in the markup.
+   ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white rounded-[4px];
+  }
+  /* Slim, unobtrusive scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+  }
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+  *::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  *::-webkit-scrollbar-track { background: transparent; }
+}
+
+@layer components {
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg text-sm font-semibold
+           px-4 py-2.5 min-h-[42px] transition-colors duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed select-none whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 shadow-sm;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink border border-line hover:bg-slate-50 active:bg-slate-100;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-muted hover:bg-slate-100 hover:text-ink;
+  }
+  .btn-danger {
+    @apply btn bg-white text-danger border border-red-200 hover:bg-red-50 active:bg-red-100;
+  }
+  .btn-sm { @apply px-3 py-2 min-h-[36px] text-[13px] rounded-lg; }
+  .btn-lg { @apply px-6 py-3 min-h-[48px] text-base; }
+  .btn-block { @apply w-full; }
+
+  /* ---------- Surfaces ---------- */
+  .card {
+    @apply bg-white border border-line rounded-card shadow-card;
+  }
+  .card-pad { @apply p-5 sm:p-6; }
+
+  /* ---------- Forms ---------- */
+  .label {
+    @apply block text-[13px] font-semibold text-ink mb-1.5;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink
+           placeholder:text-slate-400 transition-colors duration-200
+           focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none;
+  }
+  .select { @apply input pr-9 appearance-none bg-no-repeat cursor-pointer; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+  }
+  .textarea { @apply input min-h-[92px] resize-y; }
+
+  /* ---------- Status badges ---------- */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold
+           border whitespace-nowrap;
+  }
+  .badge-dot { @apply h-1.5 w-1.5 rounded-full shrink-0; }
+  .badge-success { @apply badge bg-green-50 text-green-700 border-green-200; }
+  .badge-warning { @apply badge bg-amber-50 text-amber-700 border-amber-200; }
+  .badge-danger  { @apply badge bg-red-50 text-red-700 border-red-200; }
+  .badge-info    { @apply badge bg-blue-50 text-blue-700 border-blue-200; }
+  .badge-brand   { @apply badge bg-brand-50 text-brand-700 border-brand-200; }
+  .badge-neutral { @apply badge bg-slate-100 text-slate-600 border-slate-200; }
+
+  /* ---------- Sidebar navigation ---------- */
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium
+           text-nav-text hover:bg-white/[0.06] hover:text-white transition-colors duration-200;
+  }
+  .nav-link-active {
+    @apply bg-brand-600 text-white hover:bg-brand-600 hover:text-white shadow-sm;
+  }
+
+  /* ---------- Tables ---------- */
+  .th {
+    @apply px-5 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-muted
+           bg-slate-50/80 border-b border-line whitespace-nowrap;
+  }
+  .td {
+    @apply px-5 py-4 text-sm text-ink align-middle;
+  }
+  .row-link {
+    @apply border-b border-line last:border-0 hover:bg-brand-50/40 transition-colors duration-150 cursor-pointer;
+  }
+
+  /* ---------- Tabs ---------- */
+  .tab {
+    @apply relative px-1 pb-3 pt-2 text-sm font-semibold text-muted hover:text-ink
+           transition-colors duration-200 whitespace-nowrap border-b-2 border-transparent -mb-px;
+  }
+  .tab-active { @apply text-brand-700 border-brand-600; }
+
+  /* ---------- Skeleton ---------- */
+  .skeleton {
+    @apply relative overflow-hidden bg-slate-100 rounded;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0) 0, rgba(255,255,255,.65) 50%, rgba(255,255,255,0) 100%);
+    animation: shimmer 1.4s infinite;
+  }
+
+  /* ---------- Time slot chips ---------- */
+  .slot {
+    @apply rounded-lg border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink
+           transition-all duration-200 hover:border-brand-500 hover:bg-brand-50 min-h-[44px];
+  }
+  .slot-selected {
+    @apply border-brand-600 bg-brand-600 text-white hover:bg-brand-600 hover:border-brand-600;
+  }
+  .slot-booked {
+    @apply border-line bg-slate-100 text-slate-400 line-through cursor-not-allowed
+           hover:border-line hover:bg-slate-100;
+  }
+
+  /* ---------- Toggle switch ---------- */
+  .toggle {
+    @apply relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent
+           bg-slate-300 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+  .toggle-on { @apply bg-brand-600; }
+  .toggle-knob {
+    @apply pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0
+           transition-transform duration-200 translate-x-0;
+  }
+  .toggle-on .toggle-knob { @apply translate-x-5; }
+
+  /* ---------- Step indicator ---------- */
+  .step-dot {
+    @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[13px] font-bold
+           border-2 transition-colors duration-200;
+  }
+  .step-todo { @apply border-line bg-white text-slate-400; }
+  .step-current { @apply border-brand-600 bg-brand-600 text-white; }
+  .step-done { @apply border-brand-600 bg-brand-50 text-brand-700; }
+}
+
+@layer utilities {
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(15,118,110,.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,118,110,.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}

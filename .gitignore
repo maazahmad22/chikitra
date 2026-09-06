@@ -1,0 +1,92 @@
+# ==================================================================
+# CHIKITRA demo — ignored files
+# ==================================================================
+
+# ---- Dependencies -------------------------------------------------
+node_modules/
+.npm/
+.yarn/
+.pnp.*
+
+# package-lock.json is intentionally COMMITTED so everyone builds the
+# stylesheet with the same Tailwind version.
+
+# ---- Logs ---------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---- Caches -------------------------------------------------------
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ---- Environment / secrets ----------------------------------------
+.env
+.env.*
+!.env.example
+
+# ---- Editors & tooling --------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Claude Code: share project settings, keep personal overrides local
+.claude/settings.local.json
+
+# ---- Operating system ---------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+# Linux
+.directory
+.Trash-*
+
+# ---- Scratch / local output ---------------------------------------
+tmp/
+temp/
+dist/
+build/
+coverage/
+*.tmp
+*.bak
+*.orig
+# Playwright, if browser tests are ever added to the repo
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# ==================================================================
+# NOT ignored — please keep these committed
+# ------------------------------------------------------------------
+#   assets/css/tailwind.css
+#     This is Tailwind build output, which would normally be ignored.
+#     It is committed on purpose so the demo runs by opening
+#     index.html with no npm install and no build step — which is the
+#     whole point of handing this to a doctor or clinic owner.
+#     Rebuild it with `npm run build` after editing any class or
+#     anything in src/input.css, and commit the result.
+# ==================================================================
