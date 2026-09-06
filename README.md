@@ -22,6 +22,40 @@ The demo answers four questions in about thirty seconds:
 | Can I actually book and move appointments? | Appointments — 5-step booking, reschedule, status changes |
 | Does it handle the rest of the clinic? | Patients, Staff, Attendance, Billing, Reports |
 
+### The guided tour
+
+A first-time visitor doesn't know which parts of a demo are live, so the dashboard
+starts a spotlight tour the first time it's opened. **Fourteen steps across five
+pages**, roughly two minutes — it walks itself from the dashboard through
+appointments, patients, attendance and billing, changing page as it goes, and ends by
+opening the booking flow: the thing a doctor most needs to see working.
+
+| Section | Steps | What it covers |
+|---|---|---|
+| Dashboard | 1–4 | Welcome, the four daily numbers, today's schedule, global search |
+| Appointments | 5–7 | Filters, day/week/month views, opening an appointment |
+| Patients | 8–9 | Searching the list, the four-tab patient record |
+| Attendance | 10–11 | The clinic's rules, and the phone view staff get |
+| Billing | 12–13 | Today's money, settling an invoice |
+| Your turn | 14 | Hands over to the booking flow |
+
+- **Skip is on every step** — a "Skip tour" button in the footer, an ✕ in the corner,
+  and the Esc key. Arrow keys move back and forward.
+- **Progress survives the page changes.** It's kept in the store, so the tour picks up
+  where it left off when it lands on the next page.
+- **Shows once**, then never again — unless you ask for it.
+- **Replay it** from the **?** button in the header, on any page. It restarts from
+  step 1, returning you to the dashboard first.
+- **Reset Demo Data brings it back**, so the next person you show it to gets the full
+  introduction. Worth doing right before a meeting.
+- On a phone the card becomes a bottom sheet and the steps re-point at the mobile
+  controls (the search icon rather than the desktop search box).
+
+The script lives in `STEPS` at the top of `assets/js/tour.js`. Each step is just a
+page, a CSS selector, a title and a sentence, so rewording the tour or adding a stop
+is a few lines. A step can carry `mobileTarget` and `mobileBody` when the phone layout
+needs to point somewhere else or say something different.
+
 ### What you can actually do
 
 - **Book an appointment** through a 5-step flow: patient → doctor → date → time slot → confirm.
@@ -114,6 +148,7 @@ chikitra-demo/
 │   │   ├── patients.js           Patient list, add patient, patient profile
 │   │   ├── billing.js            Invoices and payments
 │   │   ├── attendance.js         Attendance settings + simulated check-in
+│   │   ├── tour.js               Guided first-visit tour
 │   │   └── app.js                Bootstrap + dashboard, doctors, staff, reports, settings
 │   └── images/
 │       ├── logo/                 Brand mark

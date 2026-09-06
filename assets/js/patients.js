@@ -292,7 +292,7 @@
         action: '<button type="button" id="btn-add-patient" class="btn-primary w-full sm:w-auto">' +
                   icon('user-plus', 'h-4 w-4') + 'Add Patient' + '</button>',
       }) +
-      '<div class="card mb-5 p-3 sm:p-4">' +
+      '<div id="pt-filters" class="card mb-5 p-3 sm:p-4">' +
         '<div class="flex flex-col gap-3 sm:flex-row sm:items-center">' +
           '<div class="relative flex-1">' +
             '<span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">' + icon('search', 'h-[18px] w-[18px]') + '</span>' +

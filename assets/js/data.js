@@ -551,6 +551,7 @@
           { id: 'at5', staffId: 's5', date: today, checkIn: null,    checkOut: null, status: 'leave',   location: '—' },
         ],
       },
+      tour: { seen: false, running: false, step: 0 },
       session: { loggedIn: false },
     };
   }

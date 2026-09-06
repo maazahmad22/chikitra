@@ -147,6 +147,11 @@
           icon('search', 'h-5 w-5') +
         '</button>' +
 
+        // guided tour
+        '<button type="button" id="btn-tour" class="btn-ghost !min-h-[40px] !px-2.5" aria-label="Replay the guided tour" title="Guided tour">' +
+          icon('help-circle', 'h-5 w-5') +
+        '</button>' +
+
         // notifications
         '<button type="button" id="btn-notifications" class="btn-ghost relative !min-h-[40px] !px-2.5" aria-label="Notifications">' +
           icon('bell', 'h-5 w-5') +
@@ -371,6 +376,12 @@
       });
 
       document.getElementById('btn-notifications').addEventListener('click', openNotifications);
+
+      // The tour lives on the dashboard, so from anywhere else we go there first.
+      document.getElementById('btn-tour').addEventListener('click', () => {
+        if (global.Tour) Tour.restart();
+        else window.location.href = 'dashboard.html?tour=1';
+      });
     },
 
     refreshBadge() {

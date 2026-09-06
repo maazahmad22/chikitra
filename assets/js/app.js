@@ -42,9 +42,20 @@
       // Default refresh: re-render the whole page.
       if (!this._refresh) this.setRefresh(render);
 
+      const params = new URLSearchParams(window.location.search);
+
       // Deep link: appointments.html?appt=a3 opens that appointment.
-      const appt = new URLSearchParams(window.location.search).get('appt');
+      const appt = params.get('appt');
       if (appt && Store.appointment(appt)) setTimeout(() => Appointments.openDetails(appt), 250);
+
+      // Deep link: appointments.html?book=1 opens the booking flow. This is
+      // where the guided tour hands over at the end.
+      if (params.get('book') === '1' && global.Appointments) {
+        setTimeout(() => Appointments.openCreate({}), 300);
+      }
+
+      // The tour spans several pages, so every page offers to continue it.
+      if (global.Tour && !Tour.isActive) Tour.resume();
     },
   };
 
@@ -70,7 +81,7 @@
         '</div>' +
 
         // metrics
-        '<div class="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">' +
+        '<div id="dash-metrics" class="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">' +
           Components.stat({ label: 'Appointments Today', value: s.total, icon: 'calendar-days', tone: 'brand',
             hint: s.completed + ' completed so far' }) +
           Components.stat({ label: 'Upcoming', value: s.upcoming, icon: 'clock', tone: 'info',
@@ -84,7 +95,7 @@
         '<div class="grid gap-5 lg:grid-cols-3">' +
           // schedule
           '<div class="min-w-0 lg:col-span-2">' +
-            '<div class="card overflow-hidden">' +
+            '<div id="dash-schedule" class="card overflow-hidden">' +
               Components.sectionHead("Today's Schedule",
                 '<a href="appointments.html" class="inline-flex items-center gap-1 text-[13px] font-semibold text-brand-700 transition-colors hover:text-brand-800">' +
                   'View all' + icon('chevron-right', 'h-4 w-4') + '</a>',

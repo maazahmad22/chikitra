@@ -256,7 +256,7 @@
   function settingsCard() {
     const cfg = Store.state.attendance.settings;
     return (
-      '<div class="card">' +
+      '<div id="att-settings" class="card">' +
         Components.sectionHead('Attendance Settings', null, 'Decide what your staff must provide when marking attendance.') +
         '<div class="divide-y divide-line px-5 sm:px-6">' +
           Components.toggle({ name: 'required', checked: cfg.required, label: 'Attendance Required?',

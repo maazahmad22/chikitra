@@ -179,7 +179,7 @@
   function summary() {
     const s = Store.todayStats();
     return (
-      '<div class="mb-5 grid gap-4 sm:grid-cols-3">' +
+      '<div id="bl-summary" class="mb-5 grid gap-4 sm:grid-cols-3">' +
         Components.stat({ label: "Today's Revenue", value: Utils.money(s.revenue), icon: 'indian-rupee', tone: 'brand', hint: 'Total billed today' }) +
         Components.stat({ label: 'Pending', value: Utils.money(s.pending), icon: 'clock', tone: 'warning', hint: 'Awaiting payment' }) +
         Components.stat({ label: 'Collected', value: Utils.money(s.collected), icon: 'check-circle', tone: 'success', hint: 'Received today' }) +

@@ -853,7 +853,7 @@
   function toolbar() {
     const docs = Store.state.doctors;
     return (
-      '<div class="card mb-5 p-3 sm:p-4">' +
+      '<div id="appt-toolbar" class="card mb-5 p-3 sm:p-4">' +
         '<div class="flex flex-col gap-3 lg:flex-row lg:items-center">' +
           // search
           '<div class="relative lg:max-w-xs lg:flex-1">' +
@@ -883,7 +883,7 @@
 
         // view toggle
         '<div class="mt-3 flex items-center justify-between gap-3 border-t border-line pt-3">' +
-          '<div class="inline-flex rounded-lg border border-line bg-slate-50 p-1" role="group" aria-label="Calendar view">' +
+          '<div id="appt-views" class="inline-flex rounded-lg border border-line bg-slate-50 p-1" role="group" aria-label="Calendar view">' +
             ['day', 'week', 'month'].map((v) =>
               '<button type="button" data-view="' + v + '" class="rounded-md px-3.5 py-1.5 text-[13px] font-semibold capitalize transition-colors duration-200 ' +
               (filters.view === v ? 'bg-white text-brand-700 shadow-sm' : 'text-muted hover:text-ink') + '">' + v + '</button>').join('') +
